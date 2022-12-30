@@ -11,9 +11,9 @@ mvn spring-boot:run
 
 **Can be changed to suit user, used MySQL DB
 
-Configured in applications.yml 
+Configured in application.yml 
 
-   Listening Port:8080
+   Listening Port:8081
    Username: root
    Password: password
 
