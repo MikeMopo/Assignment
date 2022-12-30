@@ -1,6 +1,7 @@
 package com.arobot.assignment.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,8 @@ import javax.persistence.*;
 @Table(name= "survivor")
 public class Survivor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @JsonIgnore
     private Long id;
     @Column (name = "firstname")
     private String firstname;

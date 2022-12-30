@@ -4,6 +4,7 @@ package com.arobot.assignment.service.impl;
 import com.arobot.assignment.entity.Location;
 import com.arobot.assignment.entity.Robot;
 import com.arobot.assignment.entity.Survivor;
+import com.arobot.assignment.exception.SurvivorNotFoundException;
 import com.arobot.assignment.repository.LocationRepository;
 import com.arobot.assignment.repository.SurvivorRepository;
 import com.arobot.assignment.service.ISurvivorService;
@@ -89,9 +90,11 @@ public class SurvivorServiceImpl implements ISurvivorService {
     @Override
     public void updateSurvivorLocation(Long id, Location location) {
         Optional <Survivor> survivor = survivorRepository.findById(id);
+        if(survivor.isPresent()){
         Location  survivorLocation = survivor.get().getLocation();
         survivor.get().setLocation(location);
-        locationRepository.save(survivorLocation);
+        locationRepository.save(survivorLocation);}
+        else throw new SurvivorNotFoundException();
     }
 
 

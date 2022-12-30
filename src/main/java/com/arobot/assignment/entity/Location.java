@@ -13,9 +13,9 @@ import javax.persistence.Id;
 @Data
 public class Location {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonIgnore
     private Long id;
-    private Double latitude;
-    private Double longitude;
+    private String latitude;
+    private String longitude;
 }
